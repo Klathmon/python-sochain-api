@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import sys
@@ -9,7 +9,7 @@ except ImportError:
     from distutils.core import setup
 
 if sys.argv[-1] == 'publish':
-    os.system('python setup.py sdist upload')
+    os.system('python3 setup.py sdist upload')
     sys.exit()
 
 license = """
@@ -33,13 +33,13 @@ SOFTWARE.
 """
 
 setup(name='python-sochain-api',
-      version='0.0.1',
+      version='0.0.2',
       description='Python API for interacting with chain.so.',
       url='https://github.com/Klathmon/python-sochain-api',
       download_url='https://github.com/Klathmon/python-sochain-api/archive/0.0.1.tar.gz',
       author='Gregory Benner',
       author_email='gregbenner1@gmail.com',
       license='MIT',
-      install_requires=['requests>=2.0'],
+      install_requires=['aiohttp', 'async_timeout'],
       packages=['pysochain'],
       zip_safe=True)
