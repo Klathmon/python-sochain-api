@@ -26,7 +26,7 @@ class ChainSo(object):
             _BASE_URL, 'get_address_balance', self.network, self.address)
 
         try:
-            with async_timeout.timeout(5, loop=self._loop):
+            with async_timeout.timeout(5):
                 response = yield from self._session.get(url)
 
             _LOGGER.debug("Response from chain.so: %s", response.status)
